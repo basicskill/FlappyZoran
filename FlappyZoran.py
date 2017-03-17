@@ -6,7 +6,7 @@
 		Score
 		HighScore
 """
-
+nesto zbog cega ne radi program
 
 import pygame
 import time
