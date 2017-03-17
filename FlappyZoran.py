@@ -6,7 +6,7 @@
 		Score
 		HighScore
 """
-nesto zbog cega ne radi program
+#nesto zbog cega ne radi program
 
 import pygame
 import time
@@ -19,6 +19,9 @@ white = (255, 255, 255)
 green = (0, 200, 0)
 red = (255, 0, 0)
 siva = (100, 100, 100)
+ljubicasta = (128, 0, 128)
+plava = (0, 0, 255)
+
 
 sirina = 1280
 duzina = 720
@@ -39,7 +42,7 @@ font = pygame.font.SysFont(None, 75)
 skokSound = pygame.mixer.Sound('gameover.wav')
 
 
-
+"""Vrednosti"""
 
 dimZid = (120, 170) #nisu dimenzije zida vec otvora
 dimZoran = (100, 100)
@@ -55,10 +58,10 @@ zid_prored = 2*sirina/3 #2/3
 strDaNe = "GLUPiraj se ponovo?? (y/n)"
 strEndGame = "Glup si brate"
 strPrd = 'fart.png'
-strZoran = 'karakter.png'
+strZoran = 'saska.jpg'
 strZid = 'prepreka.png'
 
-
+radi = True	
 
 
 
@@ -66,9 +69,9 @@ strZid = 'prepreka.png'
 """KLASE & FUNKCIJE"""
 
 
-def poruka(msg, boja, a, b):
+def poruka(msg, boja, koordinate):
 	tekst = font.render(msg, True, boja)
-	ekran.blit(tekst, [a, b])
+	ekran.blit(tekst, koordinate)
 
 class TKarakter(object):
 	"""Karakter i njegova kinematika"""
@@ -197,18 +200,51 @@ def randPozicija(prepreka):
 
 
 
+"""MENI"""
+
+ekran.fill(ljubicasta)
+
+poruka("Pusti Sasku da trci (ENTER)", plava, [sirina/3, duzina/5])
+
+pygame.display.update()
+
+
+promenljiva = True
+
+while promenljiva:
+	
+	for dogadjaj in pygame.event.get():
+
+		if dogadjaj.type == pygame.QUIT:
+			radi = promenljiva = False
+
+		if dogadjaj.type == pygame.KEYDOWN:
+			if dogadjaj.key == pygame.K_ESCAPE:
+				radi = promenljiva =  False
+			
+			if dogadjaj.key == pygame.K_RETURN:
+				promenljiva = False
+				
+
+
+
+
+
+
+
 """GLAVNA PETLJA"""
 
 
 
 
-radi = True	
 
 
 
 while radi:
 
 	"""inicijalizacije"""
+
+	skor = 0
 
 	zoran = TKarakter(strZoran, dimZoran)
 
@@ -281,15 +317,22 @@ while radi:
 		if not zid.ziv:
 			zid = TPrepreka(strZid, dimZid, randPozicija(dimZid))
 			zid.x = zid1. x + zid_prored
+			skor += 1
 		
 		if not zid1.ziv:
 			zid1 = TPrepreka(strZid, dimZid, randPozicija(dimZid))
 			zid1.x = zid.x + zid_prored
+			skor += 1
+
 
 		"""crtanje i updejt"""
 
-		ekran.fill(siva)
-		poruka("ZOKI", white, 200, 200)
+		ekran.fill(ljubicasta)
+
+
+		poruka("Saska <3", white, [200, 200])
+		msg = "Skor: " + str(skor)
+		poruka(msg, green, [300, 300])
 
 		zoran.crtaj(ekran)
 		zid.crtaj(ekran)
@@ -311,9 +354,9 @@ while radi:
 	skokSound.play()
 	time.sleep(2)
 	ekran.fill(red)
-	poruka(strEndGame, white, sirina/2, duzina/3)
+	poruka(strEndGame, white, [sirina/2, duzina/3])
 	#print("ovde")
-	poruka(strDaNe, green, sirina/5, duzina/2)
+	poruka(strDaNe, green, [sirina/5, duzina/2])
 
 
 	pygame.display.update()
