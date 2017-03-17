@@ -1,4 +1,6 @@
 # FlappyZoran
 Zoki skakuce kroz prepreke
 
-Ovar readme je sranje
+Ovaj readme je sranje
+
+Ubacih grsku namerno hehe
