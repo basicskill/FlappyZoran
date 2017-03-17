@@ -1,2 +1,4 @@
 # FlappyZoran
-Zoki skace kroz prepreke
+Zoki skakuce kroz prepreke
+
+Ovar readme je sranje
