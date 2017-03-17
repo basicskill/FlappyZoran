@@ -48,10 +48,10 @@ dimZid = (120, 170) #nisu dimenzije zida vec otvora
 dimZoran = (100, 100)
 
 
-brzina_skoka = -2 #-2
-odraz = -25 #-25
-g = 0.3 #0.3
-brzina_igrice = -15 #-15
+brzina_skoka = -1 #-2
+odraz = -50 #-25
+g = 0.4 #0.3
+brzina_igrice = -10 #-15
 zid_prored = 2*sirina/3 #2/3
 
 
