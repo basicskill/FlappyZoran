@@ -6,7 +6,7 @@
 		Score
 		HighScore
 """
-#nesto zbog cega ne radi program
+#nesto zbog cega ne radi program 
 
 import pygame
 import time
@@ -58,9 +58,9 @@ zid_prored = 2*sirina/3 #2/3
 strDaNe = "GLUPiraj se ponovo?? (y/n)"
 strEndGame = "Glup si brate"
 strPrd = 'fart.png'
-strZoran = 'saska.jpg'
+strZoran = 'vukasin.png'
 strZid = 'prepreka.png'
-
+pozdravniSTR = 'OVDE!'
 radi = True	
 
 
@@ -204,7 +204,11 @@ def randPozicija(prepreka):
 
 ekran.fill(ljubicasta)
 
-poruka("Pusti Sasku da trci (ENTER)", plava, [sirina/3, duzina/5])
+pygame.draw.rect(ekran, black, (0, duzina/5, sirina, duzina/6))
+poruka(pozdravniSTR, plava, [sirina/3, duzina/5])
+
+pygame.draw.rect(ekran, black, (0, 4*duzina/5, sirina, duzina/6))
+
 
 pygame.display.update()
 
@@ -233,16 +237,9 @@ while promenljiva:
 
 
 """GLAVNA PETLJA"""
-
-
-
-
-
-
-
 while radi:
 
-	"""inicijalizacije"""
+	""" inicijalizacije """
 
 	skor = 0
 
@@ -330,7 +327,7 @@ while radi:
 		ekran.fill(ljubicasta)
 
 
-		poruka("Saska <3", white, [200, 200])
+		poruka("Skaci!!!", white, [200, 200])
 		msg = "Skor: " + str(skor)
 		poruka(msg, green, [300, 300])
 
@@ -372,4 +369,3 @@ while radi:
 
 pygame.quit()
 quit()
-ll
