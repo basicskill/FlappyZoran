@@ -6,7 +6,7 @@
 		Score
 		HighScore
 """
-#nesto zbog cega ne radi program 
+# nesto zbog cega ne radi program 
 
 import pygame
 import time
@@ -44,23 +44,23 @@ skokSound = pygame.mixer.Sound('gameover.wav')
 
 """Vrednosti"""
 
-dimZid = (120, 170) #nisu dimenzije zida vec otvora
+dimZid = (120, 170) #  nisu dimenzije zida vec otvora
 dimZoran = (100, 100)
 
 
-brzina_skoka = -1 #-2
-odraz = -50 #-25
-g = 0.4 #0.3
-brzina_igrice = -10 #-15
-zid_prored = 2*sirina/3 #2/3
+brzina_skoka = -1 #  -2
+odraz = -50 #  -25
+g = 0.4 #  0.3
+brzina_igrice = -10 #  -15
+zid_prored = 2*sirina/3 #  2/3
 
 
 strDaNe = "GLUPiraj se ponovo?? (y/n)"
 strEndGame = "Glup si brate"
 strPrd = 'fart.png'
-strZoran = 'vukasin.png'
+strZoran = 'zoran.png'
 strZid = 'prepreka.png'
-pozdravniSTR = 'OVDE!'
+pozdravniSTR = 'Enter!'
 radi = True	
 
 
@@ -130,9 +130,9 @@ class TSkokovi(object):
 		self.skokovi.append(temp)	
 
 	def crtaj(self, ekran):
-		#for i in range(0, 1):
-		#i = self.skokovi[0]
-		#self.skokovi[i].crtaj(ekran)			
+		# for i in range(0, 1):
+		# i = self.skokovi[0]
+		# self.skokovi[i].crtaj(ekran)			
 		for i in self.skokovi:
 			i.crtaj(ekran)
 
@@ -153,10 +153,10 @@ class TPrepreka(object):
 		(self.x, self.y) = poz
 		self.dim = dim		
 
-		#dim[1] = self.y
+		# dim[1] = self.y
 		self.imgG = pygame.transform.scale(temp, (int(dim[0]), int(self.y)))
 
-		#dim[1] = duzina - self.y - self.dim[1]
+		# dim[1] = duzina - self.y - self.dim[1]
 		self.imgD = pygame.transform.scale(temp, (int(dim[0]), int(duzina - self.y - self.dim[1])))
 		
 		self.xV = self.yV = 0
@@ -174,8 +174,8 @@ class TPrepreka(object):
 		self.y += self.yV
 
 		if self.x <= -self.dim[0]:
-			#self.x = sirina
-			#self.y = random.randint(150, duzina - 150)
+			# self.x = sirina
+			# self.y = random.randint(150, duzina - 150)
 			self.ziv = False
 
 
@@ -190,12 +190,6 @@ def sudar(obj1, obj2):
 
 def randPozicija(prepreka):
 	return (sirina, random.randint(50, duzina-prepreka[1]))
-
-
-
-
-
-
 
 
 
@@ -265,8 +259,8 @@ while radi:
 	skokovi.dodaj(strPrd)
 
 
-	#brojac = 50
-	#o = 5
+	# brojac = 50
+	# o = 5
 	nijeIzgubio = True
 	providnost = 255
 
@@ -284,7 +278,7 @@ while radi:
 				if dogadjaj.key == pygame.K_ESCAPE:
 					nijeIzgubio = False
 				if dogadjaj.key == pygame.K_UP:
-					#skokSound.play()
+					# skokSound.play()
 					skokovi.dodaj(strPrd)
 					zoran.xV = 0
 					zoran.y += odraz
@@ -352,7 +346,7 @@ while radi:
 	time.sleep(2)
 	ekran.fill(red)
 	poruka(strEndGame, white, [sirina/2, duzina/3])
-	#print("ovde")
+	# print("ovde")
 	poruka(strDaNe, green, [sirina/5, duzina/2])
 
 
